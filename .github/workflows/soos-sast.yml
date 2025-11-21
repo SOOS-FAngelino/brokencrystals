@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "stable" ]
 jobs:
   scan:
     runs-on: ubuntu-latest
