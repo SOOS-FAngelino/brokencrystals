@@ -1,0 +1,17 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+variables:
+  sarifGenerator: opengrep
+steps:
+- script: |
+    docker pull soosio/sast
+    docker run -u soos -v $(Build.SourcesDirectory):/home/soos/wrk/:rw --rm soosio/sast --sarifGenerator $(sarifGenerator) --clientId=$(clientId) --apiKey=$(apiKey) --apiURL="https://qa-api.soos.io/api/" --projectName="SAST-Docker-CLI in Azure DevOps"
+  displayName: "Run SOOS SAST Docker CLI Scan"
