@@ -12,4 +12,4 @@ jobs:
       - name: Run SOOS SAST Docker CLI Scan
         run: |
           docker pull soosio/sast
-          docker run -u soos -v ${{ github.workspace }}:/home/soos/wrk/:rw --rm soosio/sast --sarifGenerator $sarifGenerator --apiURL="https://qa-api.soos.io/api/" --clientId=${{ secrets.SOOS_CLIENT_ID }} --apiKey=${{ secrets.SOOS_API_KEY }} --projectName="SAST-Docker-CLI in GitHub Actions"
+          docker run -u soos -v ${{ github.workspace }}:/home/soos/wrk/:rw --rm soosio/sast --sarifGenerator $sarifGenerator --apiURL="https://qa-api.soos.io/api/" --clientId=${{ secrets.SOOS_CLIENT_ID }} --apiKey=${{ secrets.SOOS_API_KEY }} --projectName="SAST-Docker-CLI in GitHub Actions-01"
